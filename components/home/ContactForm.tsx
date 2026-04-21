@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { SectionTitle } from '../ui/SectionTitle';
 
 const CONTACT_TYPES = ['案件相談', '採用', 'その他'];
