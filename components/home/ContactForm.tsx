@@ -14,10 +14,12 @@ export function ContactForm() {
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
+    setErrorMessage(null);
 
     try {
       const res = await fetch('/api/contact', {
@@ -26,14 +28,18 @@ export function ContactForm() {
         body: JSON.stringify(formData),
       });
 
+      const data = await res.json();
+
       if (res.ok) {
         setStatus('success');
         setFormData({ name: '', company: '', email: '', types: [], message: '' });
       } else {
         setStatus('error');
+        setErrorMessage(data.error || 'エラーが発生しました。');
       }
     } catch (err) {
       setStatus('error');
+      setErrorMessage('ネットワークエラーが発生しました。');
     }
   };
 
@@ -135,7 +141,7 @@ export function ContactForm() {
               <p className="text-green-400 text-[1.4rem] animate-fade-in">お問い合わせを送信しました。ありがとうございます！</p>
             )}
             {status === 'error' && (
-              <p className="text-red-400 text-[1.4rem] animate-fade-in">エラーが発生しました。時間をおいて再度お試しください。</p>
+              <p className="text-red-400 text-[1.4rem] animate-fade-in">{errorMessage}</p>
             )}
           </div>
         </form>
