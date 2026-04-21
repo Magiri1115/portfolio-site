@@ -27,10 +27,16 @@
   }
 }
 
+html {
+  font-size: 62.5%; /* 1rem = 10px (10/16 = 0.625) */
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  font-size: 1.6rem; /* デフォルトのフォントサイズを16pxに戻す */
 }
 
 .animate-fade-in {

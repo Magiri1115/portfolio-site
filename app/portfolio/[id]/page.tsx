@@ -32,14 +32,14 @@ export default function PortfolioDetailPage() {
     : [];
 
   return (
-    <div className="max-w-[1440px] mx-auto px-8 py-12">
+    <div className="max-w-[144rem] mx-auto px-6 md:px-20 py-12 md:py-24">
       {/* Hero */}
-      <div className="mb-16">
-        <h1 className="text-4xl md:text-5xl font-medium mb-6">{project.title}</h1>
-        <p className="text-lg text-slate-400 mb-6">{project.description}</p>
-        <div className="flex flex-wrap gap-2">
+      <div className="mb-16 md:mb-24">
+        <h1 className="text-[3.6rem] md:text-[5.2rem] font-medium mb-6 leading-tight">{project.title}</h1>
+        <p className="text-[1.8rem] md:text-[2rem] text-slate-400 mb-8 max-w-3xl leading-relaxed">{project.description}</p>
+        <div className="flex flex-wrap gap-3">
           {project.tags.map((tag) => (
-            <span key={tag} className="bg-blue-900/30 text-blue-400 px-3 py-1 rounded-md text-sm">
+            <span key={tag} className="bg-blue-900/30 text-blue-400 px-4 py-1.5 rounded-md text-[1.4rem]">
               {tag}
             </span>
           ))}
@@ -48,14 +48,14 @@ export default function PortfolioDetailPage() {
 
       {/* Target Users */}
       {project.targetUsers && (
-        <section className="mb-16">
-          <SectionTitle title="ターゲットユーザー" underline={false} className="text-2xl" />
-          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8">
-            <p className="font-bold mb-4">主な対象：</p>
-            <ul className="space-y-2 text-slate-400">
+        <section className="mb-16 md:mb-24">
+          <SectionTitle title="ターゲットユーザー" underline={false} className="text-[2.4rem] md:text-[2.8rem]" />
+          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8 md:p-12">
+            <p className="font-bold mb-6 text-[1.8rem]">主な対象：</p>
+            <ul className="space-y-3 text-slate-400 text-[1.6rem]">
               {project.targetUsers.map((user, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="text-blue-500">•</span>
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-blue-500 mt-1">•</span>
                   {user}
                 </li>
               ))}
@@ -65,17 +65,17 @@ export default function PortfolioDetailPage() {
       )}
 
       {/* Challenges & Data */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-medium mb-8">具体的課題</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8 space-y-8">
+      <section className="mb-16 md:mb-24">
+        <h2 className="text-[2.4rem] md:text-[2.8rem] font-medium mb-12">具体的課題</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8 md:p-12 space-y-10">
             {project.challenges?.map((challenge, i) => (
               <div key={i}>
-                <h3 className="text-blue-400 font-medium mb-3">{challenge.title}</h3>
-                <ul className="space-y-1 text-sm text-slate-400">
+                <h3 className="text-blue-400 font-medium mb-4 text-[1.8rem]">{challenge.title}</h3>
+                <ul className="space-y-2 text-[1.4rem] text-slate-400">
                   {challenge.items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                    <li key={j} className="flex items-start gap-3">
+                      <span className="text-blue-600 mt-1">•</span>
                       {item}
                     </li>
                   ))}
@@ -83,13 +83,13 @@ export default function PortfolioDetailPage() {
               </div>
             ))}
           </div>
-          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8">
-            <h3 className="font-medium mb-4">データによる裏付け</h3>
-            <p className="text-slate-300 mb-4 text-sm">改善前の指標（3ヶ月平均）:</p>
-            <ul className="space-y-2 text-sm text-slate-400">
+          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8 md:p-12">
+            <h3 className="font-medium mb-6 text-[1.8rem]">データによる裏付け</h3>
+            <p className="text-slate-300 mb-4 text-[1.4rem]">改善前の指標（3ヶ月平均）:</p>
+            <ul className="space-y-3 text-[1.4rem] text-slate-400">
               {project.dataBacking?.map((data, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="text-blue-600">•</span>
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-blue-600 mt-1">•</span>
                   {data}
                 </li>
               ))}
@@ -100,18 +100,18 @@ export default function PortfolioDetailPage() {
 
       {/* Success Definition */}
       {project.metrics && (
-        <section className="mb-16">
-          <h2 className="text-2xl font-medium mb-8">成功定義</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <section className="mb-16 md:mb-24">
+          <h2 className="text-[2.4rem] md:text-[2.8rem] font-medium mb-12">成功定義</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {project.metrics.map((metric, i) => (
-              <div key={i} className="bg-[#1e3a5f] rounded-lg p-6 flex flex-col justify-between">
-                <div className="text-xs text-slate-400 mb-2">{metric.label}</div>
-                <div className="text-3xl font-medium text-blue-400 mb-2">{metric.value}</div>
-                <div className="text-[10px] text-slate-500">{metric.target}</div>
+              <div key={i} className="bg-[#1e3a5f] rounded-lg p-8 flex flex-col justify-between h-full">
+                <div className="text-[1.3rem] text-slate-400 mb-4">{metric.label}</div>
+                <div className="text-[3.2rem] md:text-[3.6rem] font-medium text-blue-400 mb-4">{metric.value}</div>
+                <div className="text-[1.2rem] text-slate-500">{metric.target}</div>
               </div>
             ))}
           </div>
-          <div className="mt-6 text-xs text-slate-500 space-y-1">
+          <div className="mt-8 text-[1.2rem] text-slate-500 space-y-2">
             <p>計測期間: リニューアル後3ヶ月 | 比較対象: リニューアル前3ヶ月平均</p>
             <p>分析ツール: Google Analytics 4, Hotjar, BigQuery</p>
           </div>
@@ -120,18 +120,18 @@ export default function PortfolioDetailPage() {
 
       {/* Team & Role */}
       {project.team && (
-        <section className="mb-16">
-          <h2 className="text-2xl font-medium mb-8">チーム・役割</h2>
-          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8">
-            <p className="mb-6">
+        <section className="mb-16 md:mb-24">
+          <h2 className="text-[2.4rem] md:text-[2.8rem] font-medium mb-12">チーム・役割</h2>
+          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8 md:p-12">
+            <p className="mb-8 text-[1.6rem]">
               <span className="font-bold">チーム構成:</span>{' '}
               <span className="text-slate-400">{project.team.composition}</span>
             </p>
-            <p className="font-bold mb-4">担当役割:</p>
-            <ul className="space-y-2 text-slate-400">
+            <p className="font-bold mb-4 text-[1.6rem]">担当役割:</p>
+            <ul className="space-y-3 text-slate-400 text-[1.6rem]">
               {project.team.role.map((r, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="text-blue-600">•</span>
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-blue-600 mt-1">•</span>
                   {r}
                 </li>
               ))}
@@ -141,19 +141,19 @@ export default function PortfolioDetailPage() {
       )}
 
       {/* UX Design */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-medium mb-8">UX設計</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8">
-            <h3 className="font-medium mb-6">主要な改善施策</h3>
-            <div className="space-y-8">
+      <section className="mb-16 md:mb-24">
+        <h2 className="text-[2.4rem] md:text-[2.8rem] font-medium mb-12">UX設計</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8 md:p-12">
+            <h3 className="font-medium mb-8 text-[1.8rem]">主要な改善施策</h3>
+            <div className="space-y-10">
               {project.uxImprovements?.map((imp, i) => (
                 <div key={i}>
-                  <p className="text-slate-200 font-medium mb-2">{imp.title}</p>
-                  <ul className="space-y-1 text-sm text-slate-400">
+                  <p className="text-slate-200 font-medium mb-3 text-[1.6rem]">{imp.title}</p>
+                  <ul className="space-y-2 text-[1.4rem] text-slate-400">
                     {imp.items.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2">
-                        <span className="text-blue-600">•</span>
+                      <li key={j} className="flex items-start gap-3">
+                        <span className="text-blue-600 mt-1">•</span>
                         {item}
                       </li>
                     ))}
@@ -162,26 +162,26 @@ export default function PortfolioDetailPage() {
               ))}
             </div>
           </div>
-          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8">
-            <h3 className="font-medium mb-6">ユーザーテストの実施</h3>
-            <div className="space-y-6">
+          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8 md:p-12">
+            <h3 className="font-medium mb-8 text-[1.8rem]">ユーザーテストの実施</h3>
+            <div className="space-y-10">
               <div>
-                <p className="font-bold text-sm mb-2">検証方法:</p>
-                <ul className="space-y-1 text-sm text-slate-400">
+                <p className="font-bold text-[1.4rem] mb-3">検証方法:</p>
+                <ul className="space-y-2 text-[1.4rem] text-slate-400">
                   {project.userTests?.methods.map((m, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-blue-600 mt-1">•</span>
                       {m}
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <p className="font-bold text-sm mb-2">主な発見:</p>
-                <ul className="space-y-1 text-sm text-slate-400">
+                <p className="font-bold text-[1.4rem] mb-3">主な発見:</p>
+                <ul className="space-y-2 text-[1.4rem] text-slate-400">
                   {project.userTests?.findings.map((f, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-blue-600">•</span>
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-blue-600 mt-1">•</span>
                       {f}
                     </li>
                   ))}
@@ -194,11 +194,11 @@ export default function PortfolioDetailPage() {
 
       {/* Data Visualization */}
       {project.chartData && (
-        <section className="mb-16">
-          <h2 className="text-2xl font-medium mb-8">データに基づく改善</h2>
-          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8">
-            <h3 className="text-blue-400 font-medium mb-8">コンバージョン率の推移</h3>
-            <div className="h-[300px] w-full">
+        <section className="mb-16 md:mb-24">
+          <h2 className="text-[2.4rem] md:text-[2.8rem] font-medium mb-12">データに基づく改善</h2>
+          <div className="bg-[#121827] border border-blue-500 rounded-xl p-8 md:p-12">
+            <h3 className="text-blue-400 font-medium mb-10 text-[1.8rem]">コンバージョン率の推移</h3>
+            <div className="h-[30rem] w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={chartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
@@ -212,12 +212,13 @@ export default function PortfolioDetailPage() {
                     contentStyle={{
                       backgroundColor: '#1e293b',
                       border: '1px solid #3b82f6',
-                      borderRadius: '8px',
+                      borderRadius: '0.8rem',
                       color: '#f8fafc',
+                      fontSize: '1.2rem'
                     }}
                     formatter={(value: any) => [`${value}%`, '']}
                   />
-                  <Legend wrapperStyle={{ paddingTop: '20px' }} />
+                  <Legend wrapperStyle={{ paddingTop: '2rem', fontSize: '1.2rem' }} />
                   <Line
                     type="monotone"
                     dataKey="before"
@@ -244,16 +245,16 @@ export default function PortfolioDetailPage() {
 
       {/* Tech Stack Reasons */}
       {project.techStack.length > 0 && (
-        <section className="mb-16">
-          <h2 className="text-2xl font-medium mb-8">技術選定の理由</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section className="mb-16 md:mb-24">
+          <h2 className="text-[2.4rem] md:text-[2.8rem] font-medium mb-12">技術選定の理由</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {project.techStack.map((tech, i) => (
-              <div key={i} className="bg-[#1e3a5f] rounded-lg p-6">
-                <h3 className="text-blue-400 font-medium mb-4">{tech.name}</h3>
-                <ul className="space-y-2 text-xs text-slate-400">
+              <div key={i} className="bg-[#1e3a5f] rounded-lg p-8 h-full">
+                <h3 className="text-blue-400 font-medium mb-6 text-[1.8rem]">{tech.name}</h3>
+                <ul className="space-y-3 text-[1.3rem] text-slate-400">
                   {tech.reasons.map((reason, j) => (
-                    <li key={j} className="flex items-start gap-2 leading-relaxed">
-                      <span className="text-blue-600">•</span>
+                    <li key={j} className="flex items-start gap-3 leading-relaxed">
+                      <span className="text-blue-600 mt-1">•</span>
                       {reason}
                     </li>
                   ))}
