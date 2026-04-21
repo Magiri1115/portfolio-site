@@ -15,18 +15,21 @@ import {
 } from 'recharts';
 
 export default function PortfolioDetailPage() {
-  const { id } = useParams();
+  const params = useParams();
+  const id = typeof params.id === 'string' ? params.id : '';
   const project = PROJECTS.find((p) => p.id === id);
 
   if (!project) {
     notFound();
   }
 
-  const chartData = project.chartData?.labels.map((label, index) => ({
-    name: label,
-    before: project.chartData?.datasets[0].data[index],
-    after: project.chartData?.datasets[1].data[index],
-  }));
+  const chartData = project.chartData
+    ? project.chartData.labels.map((label, index) => ({
+        name: label,
+        before: project.chartData?.datasets[0].data[index],
+        after: project.chartData?.datasets[1].data[index],
+      }))
+    : [];
 
   return (
     <div className="max-w-[1440px] mx-auto px-8 py-12">
@@ -212,7 +215,7 @@ export default function PortfolioDetailPage() {
                       borderRadius: '8px',
                       color: '#f8fafc',
                     }}
-                    formatter={(val: number) => [`${val}%`, '']}
+                    formatter={(value: any) => [`${value}%`, '']}
                   />
                   <Legend wrapperStyle={{ paddingTop: '20px' }} />
                   <Line
